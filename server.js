@@ -37,4 +37,3 @@ process.on("unhandledRejection", (err, promise) => {
   //close server & exit process
   server.close(() => process.exit(1));
 });
-
