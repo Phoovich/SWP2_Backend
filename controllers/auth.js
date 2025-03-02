@@ -106,3 +106,25 @@ exports.getMe = async (req, res) => {
     data: user,
   });
 };
+
+exports.updatePassword = async (req, res) => {
+  try {
+      const { userId, newPassword } = req.body;
+      if (!userId || !newPassword) {
+          return res.status(400).json({ success: false, msg: "Missing required fields" });
+      }
+
+      const user = await User.findById(userId);
+      if (!user) {
+          return res.status(404).json({ success: false, msg: "User not found" });
+      }
+
+      user.password = newPassword;
+      await user.save();
+
+      res.json({ success: true, msg: "Password updated successfully" });
+  } catch (error) {
+      console.error("Error updating password:", error);
+      res.status(500).json({ success: false, msg: "Error updating password" });
+  }
+};
