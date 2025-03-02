@@ -61,7 +61,7 @@ exports.login = async (req, res) => {
 // @desc Logout user / Clear cookie
 // @route GET /api/v1/auth/logout
 // @access Private
-exports.logout = (res) => {
+exports.logout = (req, res) => {
   res.cookie("token", "none", {
     expires: new Date(Date.now() + 10 * 1000), // Expire in 10 seconds
     httpOnly: true,
