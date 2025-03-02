@@ -4,7 +4,7 @@ const User = require("../models/User");
 //@desc Register user
 //@route POST /api/v1/auth/Register
 //@access Public
-exports.register = async (req, res, next) => {
+exports.register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
 
@@ -29,7 +29,7 @@ exports.register = async (req, res, next) => {
 //@desc login user
 //@route POST /api/v1/auth/login
 //@access Public
-exports.login = async (req, res, next) => {
+exports.login = async (req, res) => {
   const { email, password } = req.body;
 
   //validate email & password
@@ -61,7 +61,7 @@ exports.login = async (req, res, next) => {
 // @desc Logout user / Clear cookie
 // @route GET /api/v1/auth/logout
 // @access Private
-exports.logout = (req, res, next) => {
+exports.logout = (res) => {
   res.cookie("token", "none", {
     expires: new Date(Date.now() + 10 * 1000), // Expire in 10 seconds
     httpOnly: true,
@@ -99,7 +99,7 @@ const sendTokenResponse = (user, statusCode, res) => {
 //@desc Get current Logged in user
 //@route POST /api/v1/auth/me
 //@access Private
-exports.getMe = async (req, res, next) => {
+exports.getMe = async (req, res) => {
   const user = await User.findById(req.user.id);
   res.status(200).json({
     success: true,
