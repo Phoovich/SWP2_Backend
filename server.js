@@ -22,7 +22,7 @@ app.use(cookieParser());
 
 app.use("/api/v1/campgrounds", campgrouds);
 app.use("/api/v1/auth", auth);
-app.use("/api/v1/campgrouds", bookings);
+app.use("/api/v1/bookings", bookings);
 
 const PORT = process.env.PORT || 5003;
 
