@@ -4,3 +4,4 @@ node_modules/*
 config/config.env
 # ignore testcase file
 testcase--a6.json
+.vercel
