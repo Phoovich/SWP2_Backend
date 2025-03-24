@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const connectDB = require("./config/db");
@@ -19,6 +20,7 @@ const app = express();
 // Body parser
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 
 // Routes
 app.use("/api/v1/campgrounds", campgrouds);
