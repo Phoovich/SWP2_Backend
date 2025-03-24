@@ -79,7 +79,9 @@ exports.getBooking = async (req, res, next) => {
 //@access Private
 exports.addBooking = async (req, res, next) => {
   try {
-    //add user Id to req.boody
+    // Add user ID from authenticated user
+    req.body.user = req.user.id;
+    // Add campground ID from URL parameters
     req.body.campground = req.params.campgroundId;
 
     const { checkInDate, checkOutDate } = req.body;
