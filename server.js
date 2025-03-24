@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const connectDB = require("./config/db");
+const cors = require("cors");
 
 //Load env vara
 dotenv.config({ path: "./config/config.env" });
@@ -19,6 +20,7 @@ const app = express();
 //Body parser
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 
 app.use("/api/v1/campgrounds", campgrouds);
 app.use("/api/v1/auth", auth);
