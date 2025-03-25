@@ -24,8 +24,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://camp-ground-project-123.vercel.app",
-      "https://swp-2-frontend.vercel.app"
+      "https://camp-ground-project.vercel.app",
+      "https://swp-2-frontend.vercel.app",
     ],
     credentials: true,
   }),
