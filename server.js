@@ -26,6 +26,8 @@ app.use(
       "http://localhost:3000",
       "https://camp-ground-project.vercel.app",
       "https://swp-2-frontend.vercel.app",
+      "https://camp-ground-project-git-test-phoovichs-projects.vercel.app",
+      "https://camp-ground-project-4hbr3yp9x-phoovichs-projects.vercel.app",
     ],
     credentials: true,
   }),
